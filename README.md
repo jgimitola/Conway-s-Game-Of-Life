@@ -13,7 +13,7 @@ Implementación gráfica del juego de la vida de Conway. Creado en Python 3.8.2 
 
 ## ¿Qué hace?
 
-## El programa consiste en una interfaz gráfica inicial que pide los argumentos de la simulación, aquí usted debe digitar el tamaño de la grilla, el número de células iniciales (Si se desea colocar manualmente la células, escribir 0. De lo contrario el programa colocará aleatoriamente el número ingresado) y el número de generaciones que se quieran ver. Una vez se tengan digitados estos datos, podrá dar comenzar.
+El programa consiste en una interfaz gráfica inicial que pide los argumentos de la simulación, aquí usted debe digitar el tamaño de la grilla, el número de células iniciales (Si se desea colocar manualmente la células, escribir 0. De lo contrario el programa colocará aleatoriamente el número ingresado) y el número de generaciones que se quieran ver. Una vez se tengan digitados estos datos, podrá dar comenzar.
 
 Una vez haya dado en comenzar, existen dos escenarios posibles:
 
