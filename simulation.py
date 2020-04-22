@@ -89,15 +89,20 @@ def simulate(n, N, M, preferredSize):
                     if 0 <= posI < n and 0 <= posJ < n:
                         if event.button == 1:
                             if (posI, posJ) in di:
+                                vecis = [(posI, posJ - 1), (posI, posJ + 1), (posI - 1, posJ), (posI + 1, posJ),
+                                         (posI - 1, posJ - 1), (posI + 1, posJ - 1),
+                                         (posI - 1, posJ + 1),
+                                         (posI + 1, posJ + 1)]
                                 if not di[(posI, posJ)]["vivo"]:
                                     di[(posI, posJ)]["vivo"] = True
-                                    vecis = [(posI, posJ - 1), (posI, posJ + 1), (posI - 1, posJ), (posI + 1, posJ),
-                                             (posI - 1, posJ - 1), (posI + 1, posJ - 1),
-                                             (posI - 1, posJ + 1),
-                                             (posI + 1, posJ + 1)]
                                     for vec in vecis:
                                         if vec in di:
                                             di[vec]["vecinos"] += 1
+                                else:
+                                    di[(posI, posJ)]["vivo"] = False
+                                    for vec in vecis:
+                                        if vec in di:
+                                            di[vec]["vecinos"] -= 1
                         elif event.button == 3:
                             escogido = True
 
@@ -142,11 +147,10 @@ def simulate(n, N, M, preferredSize):
         screen.fill((88, 137, 184))
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                ejeX = range(1, M + 1)
-
+                ejeX = range(1, cont + 1)
                 plt.plot(ejeX, vivos, label="Vivos")
-                plt.plot(ejeX, naci, label="Nacimientos")
-                plt.plot(ejeX, muer, label="Muertes")
+                plt.plot(ejeX, naci, label="Nacerán")
+                plt.plot(ejeX, muer, label="Morirán")
                 plt.legend()
                 plt.savefig('runs/run.png')
                 img = Image.open('runs/run.png')
