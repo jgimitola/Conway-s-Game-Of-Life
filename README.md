@@ -1,2 +1,2 @@
 # Conway-s-Game-Of-Life
-Implementeación gráfica del juego de la vida de Conway.
+Implementeación gráfica del juego de la vida de Conway. Leones no hace nada.
