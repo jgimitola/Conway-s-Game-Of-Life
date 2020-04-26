@@ -27,7 +27,7 @@ class Game:
                              (x - 1, y + 1),
                              (x + 1, y + 1)]
                     for vecino in vecis:
-                        if 0 <= vecino[0] < n and 0 <= vecino[1] < n:
+                        if (0 <= vecino[0] < n) and (0 <= vecino[1] < n):
                             elementos[vecino]["vecinos"] += 1
                     puestos += 1
 

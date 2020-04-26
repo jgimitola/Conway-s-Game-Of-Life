@@ -96,12 +96,12 @@ def simulate(n, N, M, preferredSize):
                                 if not di[(posI, posJ)]["vivo"]:
                                     di[(posI, posJ)]["vivo"] = True
                                     for vecino in vecis:
-                                        if 0 <= vecino[0] < n and 0 <= vecino[1] < n:
+                                        if (0 <= vecino[0] < n) and (0 <= vecino[1] < n):
                                             di[vecino]["vecinos"] += 1
                                 else:
                                     di[(posI, posJ)]["vivo"] = False
                                     for vecino in vecis:
-                                        if 0 <= vecino[0] < n and 0 <= vecino[1] < n:
+                                        if (0 <= vecino[0] < n) and (0 <= vecino[1] < n):
                                             di[vecino]["vecinos"] -= 1
                         elif event.button == 3:
                             escogido = True
