@@ -26,9 +26,9 @@ class Game:
                     vecis = [(x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y), (x - 1, y - 1), (x + 1, y - 1),
                              (x - 1, y + 1),
                              (x + 1, y + 1)]
-                    for vec in vecis:
-                        if vec in elementos:
-                            elementos[vec]["vecinos"] += 1
+                    for vecino in vecis:
+                        if 0 <= vecino[0] < n and 0 <= vecino[1] < n:
+                            elementos[vecino]["vecinos"] += 1
                     puestos += 1
 
         self.inicio = Generacion(None, elementos)
