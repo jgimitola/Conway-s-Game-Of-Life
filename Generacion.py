@@ -41,13 +41,12 @@ class Generacion:
 
                 if (i, j) in nacimientos:
                     proxima[(i, j)]["vivo"] = True
-                    for vec in vecis:
-                        if vec in proxima:
-                            proxima[vec]["vecinos"] += 1
-
+                    for vecino in vecis:
+                        if 0 <= vecino[0] < n and 0 <= vecino[1] < n:
+                            proxima[vecino]["vecinos"] += 1
                 elif (i, j) in muertes:
                     proxima[(i, j)]["vivo"] = False
-                    for vec in vecis:
-                        if vec in proxima:
-                            proxima[vec]["vecinos"] -= 1
+                    for vecino in vecis:
+                        if 0 <= vecino[0] < n and 0 <= vecino[1] < n:
+                            proxima[vecino]["vecinos"] -= 1
         return Generacion(self, proxima)

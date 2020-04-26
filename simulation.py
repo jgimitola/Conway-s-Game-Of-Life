@@ -95,14 +95,14 @@ def simulate(n, N, M, preferredSize):
                                          (posI + 1, posJ + 1)]
                                 if not di[(posI, posJ)]["vivo"]:
                                     di[(posI, posJ)]["vivo"] = True
-                                    for vec in vecis:
-                                        if vec in di:
-                                            di[vec]["vecinos"] += 1
+                                    for vecino in vecis:
+                                        if 0 <= vecino[0] < n and 0 <= vecino[1] < n:
+                                            di[vecino]["vecinos"] += 1
                                 else:
                                     di[(posI, posJ)]["vivo"] = False
-                                    for vec in vecis:
-                                        if vec in di:
-                                            di[vec]["vecinos"] -= 1
+                                    for vecino in vecis:
+                                        if 0 <= vecino[0] < n and 0 <= vecino[1] < n:
+                                            di[vecino]["vecinos"] -= 1
                         elif event.button == 3:
                             escogido = True
 
@@ -148,6 +148,7 @@ def simulate(n, N, M, preferredSize):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 ejeX = range(1, cont + 1)
+                plt.title("Estadísticas por generación")
                 plt.plot(ejeX, vivos, label="Vivos")
                 plt.plot(ejeX, naci, label="Nacerán")
                 plt.plot(ejeX, muer, label="Morirán")
